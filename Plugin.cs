@@ -14,6 +14,8 @@ public class Plugin : BasePlugin
     {
         // Plugin startup logic
         Log = base.Log;
+        var harmony = new Harmony("net.heisenkebab.nightmaremode");
+        harmony.PatchAll();
         Log.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
         
     }

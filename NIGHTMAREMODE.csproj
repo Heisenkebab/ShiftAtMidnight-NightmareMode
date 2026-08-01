@@ -24,4 +24,19 @@
     <HintPath>./lib/Assembly-CSharp.dll</HintPath>
   </Reference>
 </ItemGroup>
+
+<PropertyGroup>
+  <!-- Point this at your actual game install -->
+  <GameDir>C:\Users\hk\AppData\Roaming\Thunderstore Mod Manager\DataFolder\ShiftAtMidnight\profiles\Default</GameDir>
+</PropertyGroup>
+
+<Target Name="DeployToGame" AfterTargets="Build">
+  <ItemGroup>
+    <DeployFiles Include="$(OutputPath)$(AssemblyName).dll" />
+    <DeployFiles Include="$(OutputPath)$(AssemblyName).pdb" Condition="Exists('$(OutputPath)$(AssemblyName).pdb')" />
+  </ItemGroup>
+  <Copy SourceFiles="@(DeployFiles)"
+        DestinationFolder="$(GameDir)\BepInEx\plugins\NIGHTMAREMODE\"
+        SkipUnchangedFiles="false" />
+</Target>
 </Project>
