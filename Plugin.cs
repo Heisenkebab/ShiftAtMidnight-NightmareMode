@@ -5,7 +5,7 @@ using HarmonyLib;
 
 namespace NIGHTMAREMODE;
 
-[BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
+[BepInPlugin("nightmaremode", "NIGHTMARE Mode", "1.0.0")]
 public class Plugin : BasePlugin
 {
     internal static new ManualLogSource Log;
