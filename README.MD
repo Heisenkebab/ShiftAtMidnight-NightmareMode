@@ -12,6 +12,7 @@ An unofficial [BepInEx](https://github.com/BepInEx/BepInEx) mod for **Shift At M
 - Thieves can show up starting Day 1 and are also spawning more often, instead of only appearing later on.
 - Vents become far less safe to hide in — you get kicked out of them much faster.
 - Restock boxes only refill shelves with 5 items instead of 15.
+- Tweakable multipliers (config values) for each of the above — damage, movement speed, HP, quota, etc. — instead of hardcoded amounts.
 
 ## Requirements
 
