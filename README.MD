@@ -13,6 +13,8 @@ An unofficial [BepInEx](https://github.com/BepInEx/BepInEx) mod for **Shift At M
 - Vents become far less safe to hide in — you get kicked out of them much faster.
 - Restock boxes only refill shelves with 5 items instead of 15.
 - Tweakable multipliers (config values) for each of the above — damage, movement speed, HP, quota, etc. — instead of hardcoded amounts.
+- Missing quota or dying wipes your save entirely, instead of just costing you the day.
+- Customers are always on a time limit — no more infinite-patience shoppers.
 
 ## Requirements
 
