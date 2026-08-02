@@ -2,6 +2,8 @@
 using BepInEx.Logging;
 using BepInEx.Unity.IL2CPP;
 using HarmonyLib;
+using Il2CppInterop.Runtime.Injection;
+using UnityEngine;
 
 namespace NIGHTMAREMODE;
 
@@ -16,7 +18,14 @@ public class Plugin : BasePlugin
         Log = base.Log;
         var harmony = new Harmony("net.heisenkebab.nightmaremode");
         harmony.PatchAll();
+
+        //Register ThiefSpawnTimer
+        ClassInjector.RegisterTypeInIl2Cpp<ThiefSpawnTimer>();
+        var thiefTimerObj = new GameObject("NightmareModeThiefTimer");
+        GameObject.DontDestroyOnLoad(thiefTimerObj);
+        thiefTimerObj.AddComponent<ThiefSpawnTimer>();
+
         Log.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
-        
+
     }
 }
