@@ -20,37 +20,39 @@
     <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
   </ItemGroup>
   <ItemGroup>
-  <Reference Include="Assembly-CSharp">
-    <HintPath>./lib/Assembly-CSharp.dll</HintPath>
-  </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>./lib/Assembly-CSharp.dll</HintPath>
+    </Reference>
 
-  <Reference Include="Fusion.Runtime">
+    <Reference Include="Fusion.Runtime">
       <HintPath>./lib/Fusion.Runtime.dll</HintPath>
-  </Reference>
+    </Reference>
 
-  <Reference Include="UnityEngine.CoreModule">
+    <Reference Include="UnityEngine.CoreModule">
       <HintPath>./lib/UnityEngine.CoreModule.dll</HintPath>
-  </Reference>
+    </Reference>
 
-  <Reference Include="Il2Cppmscorlib">
+    <Reference Include="Il2Cppmscorlib">
       <HintPath>./lib/Il2Cppmscorlib.dll</HintPath>
-  </Reference>
-      
-</ItemGroup>
+    </Reference>
 
-<PropertyGroup>
-  <!-- Point this at your actual game install -->
-  <GameDir>C:\Users\hk\AppData\Roaming\Thunderstore Mod Manager\DataFolder\ShiftAtMidnight\profiles\Default</GameDir>
-</PropertyGroup>
+    <Reference Include="ModSettingsMenu">
+      <HintPath>./lib/ModSettingsMenu.dll</HintPath>
+    </Reference>
 
-<Target Name="DeployToGame" AfterTargets="Build">
-  <ItemGroup>
-    <DeployFiles Include="$(OutputPath)$(AssemblyName).dll" />
-        <DeployFiles Include="$(OutputPath)$(AssemblyName).deps.json" />
-    <DeployFiles Include="$(OutputPath)$(AssemblyName).pdb" Condition="Exists('$(OutputPath)$(AssemblyName).pdb')" />
   </ItemGroup>
-  <Copy SourceFiles="@(DeployFiles)"
-        DestinationFolder="$(GameDir)\BepInEx\plugins\NIGHTMAREMODE\"
-        SkipUnchangedFiles="false" />
-</Target>
+
+  <PropertyGroup>
+    <!-- Point this at your actual game install -->
+    <GameDir>C:\Users\hk\AppData\Roaming\Thunderstore Mod Manager\DataFolder\ShiftAtMidnight\profiles\Default</GameDir>
+  </PropertyGroup>
+
+  <Target Name="DeployToGame" AfterTargets="Build">
+    <ItemGroup>
+      <DeployFiles Include="$(OutputPaths)$(AssemblyName).dll" />
+    </ItemGroup>
+    <Copy SourceFiles="@(DeployFiles)"
+      DestinationFolder="$(GameDir)\BepInEx\plugins\NIGHTMAREMODE\"
+      SkipUnchangedFiles="false" />
+  </Target>
 </Project>
