@@ -49,7 +49,7 @@
 
   <Target Name="DeployToGame" AfterTargets="Build">
     <ItemGroup>
-      <DeployFiles Include="$(OutputPaths)$(AssemblyName).dll" />
+      <DeployFiles Include="$(OutputPath)$(AssemblyName).dll" />
     </ItemGroup>
     <Copy SourceFiles="@(DeployFiles)"
       DestinationFolder="$(GameDir)\BepInEx\plugins\NIGHTMAREMODE\"
