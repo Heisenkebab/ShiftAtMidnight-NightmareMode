@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace NIGHTMAREMODE;
 
-[BepInPlugin("nightmaremode", "NIGHTMARE Mode", "1.0.0")]
+[BepInPlugin(PluginInfo.PLUGIN_GUID,PluginInfo.PLUGIN_NAME,PluginInfo.PLUGIN_VERSION)]
 public class Plugin : BasePlugin
 {
     internal static new ManualLogSource Log;
