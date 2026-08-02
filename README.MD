@@ -8,8 +8,8 @@ An unofficial [BepInEx](https://github.com/BepInEx/BepInEx) mod for **Shift At M
 
 ## Planned
 
-- Increased entity (monster) damage, movement speed and HP
 - Thieves can show up starting Day 1 and are also spawning more often, instead of only appearing later on.
+- Increased entity (monster) damage, movement speed and HP
 - Vents become far less safe to hide in — you get kicked out of them much faster.
 - Restock boxes only refill shelves with 5 items instead of 15.
 - Tweakable multipliers (config values) for each of the above — damage, movement speed, HP, quota, etc. — instead of hardcoded amounts.
@@ -34,9 +34,15 @@ An unofficial [BepInEx](https://github.com/BepInEx/BepInEx) mod for **Shift At M
 dotnet build
 ```
 
-The project references the game's `Assembly-CSharp.dll`, `Fusion.Runtime.dll`, and `UnityEngine.CoreModule.dll` from a local `lib/` folder, which isn't committed to this repo — copy them there yourself from your own game install's interop/unhollowed assemblies.
+The project references the following DLLs from a local `lib/` folder, which isn't committed to this repo — copy them there yourself from your own game install's interop/unhollowed assemblies:
 
-On build, the project automatically copies the compiled DLL (and PDB) into your game's plugin folder. Update the `<GameDir>` property in `NIGHTMAREMODE.csproj` to point at your own install path first. 
+- `Assembly-CSharp.dll`
+- `Fusion.Runtime.dll`
+- `Il2Cppmscorlib.dll`
+- `ModSettingsMenu.dll`
+- `UnityEngine.CoreModule.dll`
+
+On build, the project automatically copies the compiled DLL into your game's plugin folder. Update the `<GameDir>` property in `NIGHTMAREMODE.csproj` to point at your own install path first. Otherwise, the built `NIGHTMAREMODE.dll` can be found in `bin/Debug/net6.0/`.
 
 ## Disclaimer
 
