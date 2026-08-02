@@ -8,17 +8,19 @@ using UnityEngine;
 // own CurrentDayManager.SpawnThief() so thief selection/placement still uses vanilla logic.
 internal class ThiefSpawnTimer : MonoBehaviour
 {
-    private const float IntervalSeconds = 20f;
-    private const float SpawnChance = 0.5f;
-
     private float _timer;
 
     public ThiefSpawnTimer(IntPtr ptr) : base(ptr) { }
 
     private void Update()
     {
+        if (!NightmareSettings.Enabled.Value || !NightmareSettings.ShouldSpawnThieves.Value)
+        {
+            return;
+        }
+
         _timer += Time.deltaTime;
-        if (_timer < IntervalSeconds)
+        if (_timer < NightmareSettings.SpawnInterval.Value)
         {
             return;
         }
@@ -37,7 +39,7 @@ internal class ThiefSpawnTimer : MonoBehaviour
             return;
         }
 
-        if (UnityEngine.Random.value < SpawnChance)
+        if (UnityEngine.Random.value < NightmareSettings.SpawnChance.Value)
         {
             Plugin.Log.LogInfo("[ThiefSpawnTimer] Roll succeeded, spawning thief.");
             dayManager.SpawnThief();
