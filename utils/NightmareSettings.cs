@@ -9,5 +9,7 @@ internal static class NightmareSettings
     public static ConfigEntry<bool> ShouldSpawnThieves;
     public static ConfigEntry<int> SpawnInterval;
     public static ConfigEntry<float> SpawnChance;
-    public static ConfigEntry<float> DamageScaling;
+    public static ConfigEntry<float> DamageTakenScaling;
+    public static ConfigEntry<float> SpiderHealtScaling;
+    public static ConfigEntry<float> SpiderSpeedScaling;
 }
