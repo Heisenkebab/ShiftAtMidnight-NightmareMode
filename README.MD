@@ -5,11 +5,12 @@ An unofficial [BepInEx](https://github.com/BepInEx/BepInEx) mod for **Shift At M
 ## Features
 
 - **Quota Scaling** — Daily store quotas are multiplied by 1.5x, starting from Day 1 and applying to every day after.
+- Thieves can show up starting Day 1 and are also spawning more often, instead of only appearing later on.
+- Increase spider movement speed and HP
+- Damage taken by the player is increased
 
 ## Planned
 
-- Thieves can show up starting Day 1 and are also spawning more often, instead of only appearing later on.
-- Increased entity (monster) damage, movement speed and HP
 - Vents become far less safe to hide in — you get kicked out of them much faster.
 - Restock boxes only refill shelves with 5 items instead of 15.
 - Tweakable multipliers (config values) for each of the above — damage, movement speed, HP, quota, etc. — instead of hardcoded amounts.
