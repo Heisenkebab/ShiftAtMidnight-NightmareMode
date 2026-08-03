@@ -59,6 +59,11 @@ public class Plugin : BasePlugin
         NightmareSettings.SpiderSpeedScaling = Config.Bind("5Spider", "Spider Speed Scaling", 2f, new ConfigDescription("Adjust the Spider Speed multiplier", new AcceptableValueRange<float>(1f, 10f)));
         NightmareSettings.SpiderSpeedScaling.SettingChanged += (object sender, EventArgs e) => NightmareSettings.SpiderSpeedScaling.Value = Mathf.Round(NightmareSettings.SpiderSpeedScaling.Value * 10f) / 10f;
 
+        NightmareSettings.ShouldLimitCustomerPatience = Config.Bind("6Customers", "1Should Limit Customer Patience", true, "Force every customer to have a patience timer");
+
+        NightmareSettings.CustomerPatienceSeconds = Config.Bind("6Customers", "2Customer Patience Seconds", 60f, new ConfigDescription("Adjust how many seconds customers wait before leaving", new AcceptableValueRange<float>(5f, 180f)));
+        NightmareSettings.CustomerPatienceSeconds.SettingChanged += (object sender, EventArgs e) => NightmareSettings.CustomerPatienceSeconds.Value = Mathf.Round(NightmareSettings.CustomerPatienceSeconds.Value * 10f) / 10f;
+
 
         ModSettingsRegistry.Register(
           PluginInfo.PLUGIN_GUID,

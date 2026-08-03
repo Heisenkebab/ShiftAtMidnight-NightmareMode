@@ -12,4 +12,6 @@ internal static class NightmareSettings
     public static ConfigEntry<float> DamageTakenScaling;
     public static ConfigEntry<float> SpiderHealtScaling;
     public static ConfigEntry<float> SpiderSpeedScaling;
+    public static ConfigEntry<bool> ShouldLimitCustomerPatience;
+    public static ConfigEntry<float> CustomerPatienceSeconds;
 }
