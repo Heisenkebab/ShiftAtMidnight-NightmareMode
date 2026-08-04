@@ -8,14 +8,14 @@ An unofficial [BepInEx](https://github.com/BepInEx/BepInEx) mod for **Shift At M
 - Thieves can show up starting Day 1 and are also spawning more often, instead of only appearing later on.
 - Increase spider movement speed and HP
 - Damage taken by the player is increased
+- Restock boxes only refill shelves with 5 items instead of 15.
+- Customers are always on a time limit — no more infinite-patience shoppers.
 
 ## Planned
 
 - Vents become far less safe to hide in — you get kicked out of them much faster.
-- Restock boxes only refill shelves with 5 items instead of 15.
 - Tweakable multipliers (config values) for each of the above — damage, movement speed, HP, quota, etc. — instead of hardcoded amounts.
 - Missing quota or dying wipes your save entirely, instead of just costing you the day.
-- Customers are always on a time limit — no more infinite-patience shoppers.
 
 ## Requirements
 
@@ -43,6 +43,7 @@ The project references the following DLLs from a local `lib/` folder, which isn'
 - `ModSettingsMenu.dll`
 - `UnityEngine.CoreModule.dll`
 - `UnityEngine.UI.dll`
+- `UnityEngine.PhysicsModule.dll`
 
 On build, the project automatically copies the compiled DLL into your game's plugin folder. Update the `<GameDir>` property in `NIGHTMAREMODE.csproj` to point at your own install path first. Otherwise, the built `NIGHTMAREMODE.dll` can be found in `bin/Debug/net6.0/`.
 

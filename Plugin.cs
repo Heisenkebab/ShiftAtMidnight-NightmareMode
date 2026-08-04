@@ -64,6 +64,8 @@ public class Plugin : BasePlugin
         NightmareSettings.CustomerPatienceSeconds = Config.Bind("6Customers", "2Customer Patience Seconds", 60f, new ConfigDescription("Adjust how many seconds customers wait before leaving", new AcceptableValueRange<float>(5f, 180f)));
         NightmareSettings.CustomerPatienceSeconds.SettingChanged += (object sender, EventArgs e) => NightmareSettings.CustomerPatienceSeconds.Value = Mathf.Round(NightmareSettings.CustomerPatienceSeconds.Value * 10f) / 10f;
 
+        NightmareSettings.BoxContentAmount = Config.Bind("7Boxes", "Box Content", 5, new ConfigDescription("Adjust how many products a product box holds", new AcceptableValueRange<int>(1, 15)));
+
 
         ModSettingsRegistry.Register(
           PluginInfo.PLUGIN_GUID,
