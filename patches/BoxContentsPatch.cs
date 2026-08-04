@@ -14,11 +14,11 @@ public static class BoxContentsPatch
         if (__instance.itemStorage <= 0 && __instance.itemStorage2 <= 0) return;
         if (__instance.itemStorage != 15) return;
 
-        int scale = NightmareSettings.BoxContentAmount.Value;
+        int value = NightmareSettings.BoxContentAmount.Value;
         int before = __instance.itemStorage;
         int before2 = __instance.itemStorage2;
 
-        __instance.ChangeAmountOfItems(scale, 0);
-        Plugin.Log.LogInfo($"Scaled box contents to {scale}x on objectIndex {__instance.objectIndex} ({before}/{before2} to {__instance.itemStorage}/{__instance.itemStorage2})");
+        __instance.ChangeAmountOfItems(value, 0);
+        Plugin.Log.LogInfo($"[PickupObject] Change box contents to {value} on objectIndex {__instance.objectIndex} ({before}/{before2} to {__instance.itemStorage}/{__instance.itemStorage2})");
     }
 }
