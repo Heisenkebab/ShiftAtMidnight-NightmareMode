@@ -14,30 +14,18 @@ internal class ThiefSpawnTimer : MonoBehaviour
 
     private void Update()
     {
-        if (!NightmareSettings.Enabled.Value || !NightmareSettings.ShouldSpawnThieves.Value)
-        {
-            return;
-        }
-
+        if (!NightmareSettings.Enabled.Value || !NightmareSettings.ShouldSpawnThieves.Value) return;
         _timer += Time.deltaTime;
-        if (_timer < NightmareSettings.SpawnInterval.Value)
-        {
-            return;
-        }
+
+        if (_timer < NightmareSettings.SpawnInterval.Value) return;
         _timer = 0f;
 
         CurrentDayManager dayManager = CurrentDayManager.Instance;
-        if (dayManager == null || !dayManager.startedDay)
-        {
-            return;
-        }
+        if (dayManager == null || !dayManager.startedDay) return;
 
         // Only the state authority (host) should trigger spawns, otherwise every
         // connected client would independently roll and spawn its own thief.
-        if (!dayManager.HasStateAuthority)
-        {
-            return;
-        }
+        if (!dayManager.HasStateAuthority) return;
 
         if (UnityEngine.Random.value < NightmareSettings.SpawnChance.Value)
         {

@@ -7,14 +7,13 @@ public static class BoxContentsPatch
 {
     static void Postfix(PickupObject __instance)
     {
-        if (!NightmareSettings.Enabled.Value)
-        {
-            return;
-        }
+        if (!NightmareSettings.Enabled.Value) return;
         if (__instance.Object == null || !__instance.Object.HasStateAuthority) return;
+
         // Only boxes carry a stock count, every other PickupObject leaves these at 0.
         if (__instance.itemStorage <= 0 && __instance.itemStorage2 <= 0) return;
         if (__instance.itemStorage != 15) return;
+
         int scale = NightmareSettings.BoxContentAmount.Value;
         int before = __instance.itemStorage;
         int before2 = __instance.itemStorage2;

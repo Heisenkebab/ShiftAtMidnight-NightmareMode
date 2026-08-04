@@ -1,11 +1,6 @@
 using HarmonyLib;
 using NIGHTMAREMODE;
-using UnityEngine;
 
-// The two boxes you get on day 1 of story mode are pre-placed scene objects in
-// TruckManager.deliveryItems, so there is nothing to "spawn more" of there.
-// Instead we grab a box prefab out of the shop catalog and spawn extras the same
-// way DropPurchase does.
 [HarmonyPatch(typeof(RestockShelf), "RemoveAtStart")]
 public static class TutorialShelfPatch
 {

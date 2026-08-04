@@ -6,10 +6,7 @@ public static class SpiderSpeedPatch
 {
     static void Prefix(Spider __instance)
     {
-        if (!NightmareSettings.Enabled.Value)
-        {
-            return;
-        }
+        if (!NightmareSettings.Enabled.Value) return;
         __instance.normalSpeed *= NightmareSettings.SpiderSpeedScaling.Value;
         __instance.runSpeed *= NightmareSettings.SpiderSpeedScaling.Value;
         __instance.annoyedSpeed *= NightmareSettings.SpiderSpeedScaling.Value;

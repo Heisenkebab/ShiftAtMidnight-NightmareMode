@@ -6,10 +6,7 @@ public static class ScaleSaveManagerQuotaPatch
 {
     static void Prefix(ref float quota)
     {
-        if (!NightmareSettings.Enabled.Value)
-        {
-            return;
-        }
+        if (!NightmareSettings.Enabled.Value) return;
 
         quota *= NightmareSettings.QuotaScaling.Value;
         Plugin.Log.LogInfo($"Scaled SaveManager gameplay quota to {quota}");
@@ -21,10 +18,7 @@ public static class ScaleEndOfDayReportQuotaPatch
 {
     static void Prefix(ref float quota)
     {
-        if (!NightmareSettings.Enabled.Value)
-        {
-            return;
-        }
+        if (!NightmareSettings.Enabled.Value) return;
 
         quota *= NightmareSettings.QuotaScaling.Value;
         Plugin.Log.LogInfo($"Scaled end-of-day quota to {quota}");

@@ -27,7 +27,7 @@ public class Plugin : BasePlugin
 
         //Register ThiefSpawnTimer
         ClassInjector.RegisterTypeInIl2Cpp<ThiefSpawnTimer>();
-        var thiefTimerObj = new GameObject("NightmareModeThiefTimer");
+        GameObject thiefTimerObj = new GameObject("NightmareModeThiefTimer");
         GameObject.DontDestroyOnLoad(thiefTimerObj);
         thiefTimerObj.AddComponent<ThiefSpawnTimer>();
 
