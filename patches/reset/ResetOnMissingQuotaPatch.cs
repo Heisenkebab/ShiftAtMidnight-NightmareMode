@@ -2,7 +2,7 @@ using HarmonyLib;
 using NIGHTMAREMODE;
 
 [HarmonyPatch(typeof(EndOfDayReport), "ShowQuota")]
-public static class MissingQuotaPatch
+public static class ResetOnMissingQuotaPatch
 {
     static void Postfix(EndOfDayReport __instance)
     {
