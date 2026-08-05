@@ -21,10 +21,6 @@ public class Plugin : BasePlugin
         // Plugin startup logic
         Log = base.Log;
 
-        // Config and injected components must exist before any patch can run. If PatchAll
-        // goes first and something below it throws, Load aborts with the patches already
-        // installed and every NightmareSettings entry still null, so each patch then throws
-        // a NullReferenceException on every invocation.
         registerConfig();
 
         //Register ThiefSpawnTimer
@@ -94,5 +90,11 @@ public class Plugin : BasePlugin
               ThunderstoreTeam = "Heisenkebab_Mods",
               ThunderstoreModName = "NIGHTMAREMode"
           });
+    }
+    class PluginInfo
+    {
+        public const string PLUGIN_GUID = "nightmaremode";
+        public const string PLUGIN_NAME = "NIGHTMARE Mode";
+        public const string PLUGIN_VERSION = "1.0.0";
     }
 }
