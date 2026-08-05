@@ -20,9 +20,11 @@ public class Plugin : BasePlugin
     {
         // Plugin startup logic
         Log = base.Log;
-        var harmony = new Harmony("net.heisenkebab.nightmaremode");
-        harmony.PatchAll();
 
+        // Config and injected components must exist before any patch can run. If PatchAll
+        // goes first and something below it throws, Load aborts with the patches already
+        // installed and every NightmareSettings entry still null, so each patch then throws
+        // a NullReferenceException on every invocation.
         registerConfig();
 
         //Register ThiefSpawnTimer
@@ -30,6 +32,15 @@ public class Plugin : BasePlugin
         GameObject thiefTimerObj = new GameObject("NightmareModeThiefTimer");
         GameObject.DontDestroyOnLoad(thiefTimerObj);
         thiefTimerObj.AddComponent<ThiefSpawnTimer>();
+
+        //Register NightmareRunEnder. Must survive the scene unload it triggers.
+        ClassInjector.RegisterTypeInIl2Cpp<NightmareRunEnder>();
+        GameObject runEnderObj = new GameObject("NightmareModeRunEnder");
+        GameObject.DontDestroyOnLoad(runEnderObj);
+        NightmareRunEnder.Instance = runEnderObj.AddComponent<NightmareRunEnder>();
+
+        var harmony = new Harmony("net.heisenkebab.nightmaremode");
+        harmony.PatchAll();
 
         Log.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
 
@@ -66,6 +77,10 @@ public class Plugin : BasePlugin
 
         NightmareSettings.BoxContentAmount = Config.Bind("7Boxes", "Box Content", 5, new ConfigDescription("Adjust how many products a product box holds", new AcceptableValueRange<int>(1, 15)));
 
+        NightmareSettings.DeathReset = Config.Bind("8GameReset", "1Death Reset Mode", DeathResetMode.AnyoneDies,
+            "When a death wipes the run. Never = deaths never reset. AnyoneDies = a single death ends the run for everyone. EveryoneDies = only a full team wipe ends the run.");
+
+        NightmareSettings.QuotaReset = Config.Bind("8GameReset", "2Quota Reset", true, "Wipe the run when the day ends without the quota being met.");
 
         ModSettingsRegistry.Register(
           PluginInfo.PLUGIN_GUID,
@@ -76,7 +91,7 @@ public class Plugin : BasePlugin
               Author = "Heisenkebab",
               Version = PluginInfo.PLUGIN_VERSION,
               NexusModsId = 6,
-              ThunderstoreTeam = "Heisenkebab",
+              ThunderstoreTeam = "Heisenkebab_Mods",
               ThunderstoreModName = "NIGHTMAREMode"
           });
     }

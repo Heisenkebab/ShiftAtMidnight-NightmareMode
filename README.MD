@@ -44,6 +44,7 @@ The project references the following DLLs from a local `lib/` folder, which isn'
 - `UnityEngine.CoreModule.dll`
 - `UnityEngine.UI.dll`
 - `UnityEngine.PhysicsModule.dll`
+- `Unity.TextMeshPro.dll`
 
 On build, the project automatically copies the compiled DLL into your game's plugin folder. Update the `<GameDir>` property in `NIGHTMAREMODE.csproj` to point at your own install path first. Otherwise, the built `NIGHTMAREMODE.dll` can be found in `bin/Debug/net6.0/`.
 
