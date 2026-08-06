@@ -16,11 +16,13 @@ public static class ScaleSaveManagerQuotaPatch
 [HarmonyPatch(typeof(EndOfDayReport), "Rpc_UpdateVariables")]
 public static class ScaleEndOfDayReportQuotaPatch
 {
-    static void Prefix(ref float quota)
+    static void Prefix(ref float quota, EndOfDayReport __instance)
     {
         if (!NightmareSettings.Enabled.Value) return;
 
         quota *= NightmareSettings.QuotaScaling.Value;
+        // ShowQuota compares against eodValues.mandatoryRevenue, not this quota param, which is only displayed.
+        __instance.eodValues.mandatoryRevenue *= NightmareSettings.QuotaScaling.Value;
         Plugin.Log.LogInfo($"Scaled end-of-day quota to {quota}");
     }
 }
