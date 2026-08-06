@@ -73,7 +73,7 @@ public class Plugin : BasePlugin
 
         NightmareSettings.BoxContentAmount = Config.Bind("7Boxes", "Box Content", 5, new ConfigDescription("Adjust how many products a product box holds", new AcceptableValueRange<int>(1, 15)));
 
-        NightmareSettings.VentPushOutSpeed = Config.Bind("8Vents", "Vent Push Out Speed", 1.15f, new ConfigDescription("Adjust how fast the vent pushes a player back out (game default 1.15)", new AcceptableValueRange<float>(0.1f, 10f)));
+        NightmareSettings.VentPushOutSpeed = Config.Bind("8Vents", "Vent Push Out Speed", 2.30f, new ConfigDescription("Adjust how fast the vent pushes a player back out (game default 1.15)", new AcceptableValueRange<float>(0.1f, 10f)));
         NightmareSettings.VentPushOutSpeed.SettingChanged += (object sender, EventArgs e) => NightmareSettings.VentPushOutSpeed.Value = Mathf.Round(NightmareSettings.VentPushOutSpeed.Value * 100f) / 100f;
 
         NightmareSettings.DeathReset = Config.Bind("9GameReset", "1Death Reset Mode", DeathResetMode.AnyoneDies,
