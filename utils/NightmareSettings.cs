@@ -15,6 +15,7 @@ internal static class NightmareSettings
     public static ConfigEntry<bool> ShouldLimitCustomerPatience;
     public static ConfigEntry<float> CustomerPatienceSeconds;
     public static ConfigEntry<int> BoxContentAmount;
+    public static ConfigEntry<float> VentPushOutSpeed;
     public static ConfigEntry<DeathResetMode> DeathReset;
     public static ConfigEntry<bool> QuotaReset;
 }

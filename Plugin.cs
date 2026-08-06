@@ -73,10 +73,13 @@ public class Plugin : BasePlugin
 
         NightmareSettings.BoxContentAmount = Config.Bind("7Boxes", "Box Content", 5, new ConfigDescription("Adjust how many products a product box holds", new AcceptableValueRange<int>(1, 15)));
 
-        NightmareSettings.DeathReset = Config.Bind("8GameReset", "1Death Reset Mode", DeathResetMode.AnyoneDies,
+        NightmareSettings.VentPushOutSpeed = Config.Bind("8Vents", "Vent Push Out Speed", 1.15f, new ConfigDescription("Adjust how fast the vent pushes a player back out (game default 1.15)", new AcceptableValueRange<float>(0.1f, 10f)));
+        NightmareSettings.VentPushOutSpeed.SettingChanged += (object sender, EventArgs e) => NightmareSettings.VentPushOutSpeed.Value = Mathf.Round(NightmareSettings.VentPushOutSpeed.Value * 100f) / 100f;
+
+        NightmareSettings.DeathReset = Config.Bind("9GameReset", "1Death Reset Mode", DeathResetMode.AnyoneDies,
             "When a death wipes the run. Never = deaths never reset. AnyoneDies = a single death ends the run for everyone. EveryoneDies = only a full team wipe ends the run.");
 
-        NightmareSettings.QuotaReset = Config.Bind("8GameReset", "2Quota Reset", true, "Wipe the run when the day ends without the quota being met.");
+        NightmareSettings.QuotaReset = Config.Bind("9GameReset", "2Quota Reset", true, "Wipe the run when the day ends without the quota being met.");
 
         ModSettingsRegistry.Register(
           PluginInfo.PLUGIN_GUID,
