@@ -11,7 +11,7 @@ using UnityEngine;
 namespace NIGHTMAREMODE;
 
 [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
-[BepInDependency(ModSettingsMenu.PluginInfo.PLUGIN_GUID, BepInDependency.DependencyFlags.SoftDependency)]
+[BepInDependency(ModSettingsMenu.PluginInfo.PLUGIN_GUID)]
 public class Plugin : BasePlugin
 {
     internal static new ManualLogSource Log;
