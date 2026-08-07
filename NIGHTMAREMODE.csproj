@@ -71,4 +71,53 @@
       DestinationFolder="$(GameDir)\BepInEx\plugins\NIGHTMAREMODE\"
       SkipUnchangedFiles="false" />
   </Target>
+
+  <!-- Thunderstore packaging. Deliberately NOT hooked to Build: run it explicitly
+       with `dotnet build -c Release -t:ThunderstorePackage` when cutting a release. -->
+  <PropertyGroup>
+    <ThunderstoreDir>$(MSBuildProjectDirectory)\thunderstore</ThunderstoreDir>
+    <PackageStageDir>$(MSBuildProjectDirectory)\artifacts\package</PackageStageDir>
+    <PackageZipPath>$(MSBuildProjectDirectory)\artifacts\$(AssemblyName)-$(Version).zip</PackageZipPath>
+  </PropertyGroup>
+
+  <Target Name="ThunderstorePackage" DependsOnTargets="Build">
+
+    <Error Condition="!Exists('$(ThunderstoreDir)\icon.png')"
+      Text="Missing $(ThunderstoreDir)\icon.png - Thunderstore requires a 256x256 PNG icon at the package root." />
+    <Error Condition="!Exists('$(ThunderstoreDir)\manifest.json.in')"
+      Text="Missing $(ThunderstoreDir)\manifest.json.in - the manifest template." />
+
+    <!-- Wipe staging so stale files from a previous version can never ship. -->
+    <RemoveDir Directories="$(PackageStageDir)" />
+    <MakeDir Directories="$(PackageStageDir)\$(AssemblyName)" />
+
+    <!-- The three required root files. README.MD is renamed to README.md;
+         Thunderstore filenames are case-sensitive. -->
+    <Copy SourceFiles="$(ThunderstoreDir)\icon.png"
+      DestinationFiles="$(PackageStageDir)\icon.png" />
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\README.MD"
+      DestinationFiles="$(PackageStageDir)\README.md" />
+
+    <PropertyGroup>
+      <_ManifestText>$([System.IO.File]::ReadAllText('$(ThunderstoreDir)\manifest.json.in'))</_ManifestText>
+      <_ManifestText>$(_ManifestText.Replace('{VERSION}', '$(Version)'))</_ManifestText>
+      <_ManifestText>$(_ManifestText.Replace(';', '%3B'))</_ManifestText>
+    </PropertyGroup>
+    <WriteLinesToFile File="$(PackageStageDir)\manifest.json"
+      Lines="$(_ManifestText)"
+      Overwrite="true"
+      Encoding="us-ascii"
+      WriteOnlyWhenDifferent="false" />
+
+    <Copy SourceFiles="$(OutputPath)$(AssemblyName).dll"
+      DestinationFolder="$(PackageStageDir)\$(AssemblyName)" />
+
+    <!-- Zips the *contents* of the staging dir, so the required files land at the
+         zip root rather than inside a folder. -->
+    <ZipDirectory SourceDirectory="$(PackageStageDir)"
+      DestinationFile="$(PackageZipPath)"
+      Overwrite="true" />
+
+    <Message Importance="high" Text="Thunderstore package: $(PackageZipPath)" />
+  </Target>
 </Project>

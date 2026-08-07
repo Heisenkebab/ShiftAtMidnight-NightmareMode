@@ -48,6 +48,18 @@ The project references the following DLLs from a local `lib/` folder, which isn'
 
 On build, the project automatically copies the compiled DLL into your game's plugin folder. Update the `<GameDir>` property in `NIGHTMAREMODE.csproj` to point at your own install path first. Otherwise, the built `NIGHTMAREMODE.dll` can be found in `bin/Debug/net6.0/`.
 
+## Packaging for Thunderstore
+
+```
+dotnet build -c Release -t:ThunderstorePackage
+```
+
+Produces an upload-ready `artifacts/NIGHTMAREMODE-<version>.zip`. This is a separate target rather than part of a normal `dotnet build`, so the fast edit-build-playtest loop stays fast.
+
+To cut a release, bump `<Version>` in `NIGHTMAREMODE.csproj` — that single value feeds both `PluginInfo.PLUGIN_VERSION` and the package manifest's `version_number`. Note that Thunderstore always serves the highest version ever uploaded, so a mistyped version permanently buries every release after it.
+
+Package sources live in `thunderstore/`; see the README there.
+
 ## Disclaimer
 
 This is an unofficial, fan-made mod and is not affiliated with or endorsed by the developers or publisher of Shift At Midnight.

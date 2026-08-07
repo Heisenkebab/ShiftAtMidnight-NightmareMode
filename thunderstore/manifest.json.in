@@ -1,0 +1,7 @@
+{
+  "name": "NIGHTMAREMODE",
+  "version_number": "{VERSION}",
+  "website_url": "https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode",
+  "description": "Makes Shift At Midnight meaner: scaled quotas, day-one thieves, faster and tankier spiders, more damage taken, stingier restocks, impatient customers, and a full save wipe on failure.",
+  "dependencies": ["BepInEx-BepInExPack-5.4.2100"]
+}
