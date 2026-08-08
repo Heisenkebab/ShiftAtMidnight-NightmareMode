@@ -1,3 +1,4 @@
+using Fusion;
 using HarmonyLib;
 using NIGHTMAREMODE;
 
@@ -9,46 +10,23 @@ public static class ResetOnDeathPatch
         if (!NightmareSettings.Enabled.Value) return;
 
         DeathResetMode mode = NightmareSettings.DeathReset.Value;
-        if (mode == DeathResetMode.Never) return;
 
-        string reason;
-        string message;
+        string message = "Your whole team died. The save file has been wiped.";
+        string singleplayerMessage = "You died. The save file has been wiped.";
 
-        if (mode == DeathResetMode.AnyoneDies)
+        // Rpc_Die is the team wipe, so gate it on state authority to end the run once for the lobby.
+        // Solo is its own case: the one death is already the wipe, so anything but Never ends the run.
+        var net = FusionNetworkManager.Instance;
+
+        if (net == null)
         {
-            reason = "a player died";
-            message = "A player died. The save file has been wiped.";
+            Plugin.Log.LogError("[ResetOnDeath] Instance of FusionNetworkManager does not exist");
+            return;
         }
-        else
-        {
-            if (!EveryoneIsDead(__instance)) return;
-
-            reason = "everyone died";
-            message = "Your whole team died. The save file has been wiped.";
-        }
-
-        if (__instance.HasStateAuthority)
-            NightmareRunEnder.EndRun(reason, NightmareRunEnder.DeathDelay, message);
+        bool isSolo = net.IsSoloMode();
+        if ((__instance.HasStateAuthority && mode == DeathResetMode.EveryoneDies) || (isSolo && mode != DeathResetMode.Never))
+            NightmareRunEnder.EndRun("everyone died", NightmareRunEnder.DeathDelay, isSolo ? singleplayerMessage : message);
         else
             NightmareRunEnder.ShowEndReason(message);
-    }
-
-    private static bool EveryoneIsDead(PlayerManager justDied)
-    {
-        StoreManager store = StoreManager.Instance;
-        if (store == null || store.playerMans == null) return false;
-
-        for (int i = 0; i < store.playerMans.Count; i++)
-        {
-            PlayerManager pm = store.playerMans[i];
-            if (pm == null) continue;
-
-            // The player that triggered this is dead whether or not the flag has landed yet.
-            if (pm.Pointer == justDied.Pointer) continue;
-
-            if (!pm.dead) return false;
-        }
-
-        return true;
     }
 }
