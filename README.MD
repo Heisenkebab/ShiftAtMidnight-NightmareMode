@@ -26,14 +26,22 @@ Nothing locked in yet. If there's a way you'd like the game made harder, [open a
 - Shift At Midnight (Steam)
 - [BepInEx 6 (IL2CPP)](https://github.com/BepInEx/BepInEx) installed for the game
 - HarmonyX (bundled with BepInEx IL2CPP)
-- ModSettingsMenu — a **required** dependency, not an optional one. It provides the in-game settings UI, and the plugin will not load without it.
+- [ModSettingsMenu](https://thunderstore.io/c/shift-at-midnight/p/Ice_Box_Studio_SAM/ModSettingsMenu/) — a **required** dependency, not an optional one. It provides the in-game settings UI, and the plugin will not load without it.
+
+A mod manager installs everything below the first line for you. Only the manual route asks you to handle them yourself.
 
 ## Installation
 
-1. Install BepInEx (IL2CPP) for Shift At Midnight if you haven't already.
-2. Install ModSettingsMenu.
-3. Drop `NIGHTMAREMODE.dll` into `BepInEx/plugins/NIGHTMAREMODE/`.
-4. Launch the game. Check `BepInEx/LogOutput.log` for `Plugin NIGHTMARE Mode 1.0.0 is loaded!` to confirm it's active.
+### With a mod manager
+
+Install from [Thunderstore](https://thunderstore.io/c/shift-at-midnight/p/Heisenkebab_Mods/NIGHTMARE_Mode/) using Thunderstore Mod Manager or r2modman. BepInEx and ModSettingsMenu are declared as dependencies in the package, so the manager pulls both in on its own — there is nothing else to set up.
+
+### Manually
+
+1. Install [BepInEx 6 (IL2CPP)](https://github.com/BepInEx/BepInEx) for Shift At Midnight if you haven't already.
+2. Install [ModSettingsMenu](https://thunderstore.io/c/shift-at-midnight/p/Ice_Box_Studio_SAM/ModSettingsMenu/). Don't skip this one — without it the plugin fails to load, with no error in-game to tell you why.
+3. Drop `NIGHTMAREMODE.dll` into `BepInEx/plugins`.
+4. Launch the game. Check `BepInEx/LogOutput.log` for `Plugin NIGHTMARE Mode <version> is loaded!` to confirm it's active.
 
 ## Building from source
 
