@@ -61,11 +61,13 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <!-- Point this at your actual game install -->
+    <!-- Point this at your actual game install. If it is empty or does not exist,
+         DeployToGame is skipped, so a fresh clone still builds cleanly. -->
     <GameDir>C:\Users\hk\AppData\Roaming\Thunderstore Mod Manager\DataFolder\ShiftAtMidnight\profiles\Default</GameDir>
   </PropertyGroup>
 
-  <Target Name="DeployToGame" AfterTargets="Build">
+  <Target Name="DeployToGame" AfterTargets="Build"
+    Condition="'$(GameDir)' != '' AND Exists('$(GameDir)')">
     <ItemGroup>
       <DeployFiles Include="$(OutputPath)$(AssemblyName).dll" />
     </ItemGroup>
