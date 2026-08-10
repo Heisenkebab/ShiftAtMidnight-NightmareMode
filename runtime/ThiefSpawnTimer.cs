@@ -21,7 +21,7 @@ internal class ThiefSpawnTimer : MonoBehaviour
 
         if (!dayManager.HasStateAuthority) return;
 
-        if (UnityEngine.Random.value < NightmareSettings.SpawnChance.Value)
+        if (UnityEngine.Random.value < (NightmareSettings.SpawnChance.Value / 100f))
         {
             Plugin.Log.LogInfo("[ThiefSpawnTimer] Roll succeeded, spawning thief.");
             dayManager.SpawnThief();

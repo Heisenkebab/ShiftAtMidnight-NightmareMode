@@ -9,7 +9,7 @@ public static class EnemyHealthPatch
         if (!NightmareSettings.Enabled.Value) return;
         if (!__instance.Object.HasStateAuthority) return;
         float healthBefore = health;
-        health *= NightmareSettings.SpiderHealtScaling.Value;
-        Plugin.Log.LogInfo($"Scaled enemy health to {NightmareSettings.SpiderHealtScaling.Value}x ({healthBefore} to {health})");
+        health *= NightmareSettings.SpiderHealthScaling.Value;
+        Plugin.Log.LogInfo($"Scaled enemy health to {NightmareSettings.SpiderHealthScaling.Value}x ({healthBefore} to {health})");
     }
 }
