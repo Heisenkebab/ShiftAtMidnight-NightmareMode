@@ -4,15 +4,16 @@ An unofficial [BepInEx](https://github.com/BepInEx/BepInEx) mod for **Shift At M
 
 ## Features
 
-- **Quota Scaling** — Daily store quotas are multiplied by 1.5x, starting from Day 1 and applying to every day after.
-- Thieves can show up starting Day 1 and are also spawning more often, instead of only appearing later on.
-- Increase spider movement speed and HP
-- Damage taken by the player is increased
-- Restock boxes only refill shelves with 5 items instead of 15.
-- Customers are always on a time limit — no more infinite-patience shoppers.
-- Missing quota or dying wipes your save entirely, instead of just costing you the day.
-- Vents become far less safe to hide in — you get kicked out of them much faster. This one is handled purely client-side, so each player's own push-out speed setting is what applies to them, not the host's.
-- Tweakable multipliers (config values) for each of the above — damage, movement speed, HP, quota, etc. — instead of hardcoded amounts.
+Each feature below maps to the config section of the same name, so anything you want to change is easy to find.
+
+- **Quota** — Daily store quotas are multiplied by 3x by default, starting from Day 1 and applying to every day after.
+- **Thieves** — Thieves can show up from the very first day and spawn more often, instead of only appearing later on.
+- **Damage** — Every hit the player takes is multiplied.
+- **Spiders** — Movement speed and HP are both scaled up.
+- **Customers** — Every customer is on a patience timer, so there are no more infinite-patience shoppers.
+- **Boxes** — Restock boxes only refill shelves with 5 items instead of 15.
+- **Vents** — You get pushed back out much faster, so vents are no longer a safe hiding spot. This one is handled purely client-side, so each player's own push-out speed applies to them rather than the host's.
+- **Game reset** — Missing quota or dying wipes your save entirely, instead of just costing you the day.
 
 ## Planned
 
@@ -23,12 +24,14 @@ Nothing locked in yet. If there's a way you'd like the game made harder, [open a
 - Shift At Midnight (Steam)
 - [BepInEx 6 (IL2CPP)](https://github.com/BepInEx/BepInEx) installed for the game
 - HarmonyX (bundled with BepInEx IL2CPP)
+- ModSettingsMenu — a **required** dependency, not an optional one. It provides the in-game settings UI, and the plugin will not load without it.
 
 ## Installation
 
 1. Install BepInEx (IL2CPP) for Shift At Midnight if you haven't already.
-2. Drop `NIGHTMAREMODE.dll` into `BepInEx/plugins/NIGHTMAREMODE/`.
-3. Launch the game. Check `BepInEx/LogOutput.log` for `Plugin NIGHTMAREMODE is loaded!` to confirm it's active.
+2. Install ModSettingsMenu.
+3. Drop `NIGHTMAREMODE.dll` into `BepInEx/plugins/NIGHTMAREMODE/`.
+4. Launch the game. Check `BepInEx/LogOutput.log` for `Plugin NIGHTMARE Mode 1.0.0 is loaded!` to confirm it's active.
 
 ## Building from source
 
@@ -46,8 +49,9 @@ The project references the following DLLs from a local `lib/` folder, which isn'
 - `UnityEngine.UI.dll`
 - `UnityEngine.PhysicsModule.dll`
 - `Unity.TextMeshPro.dll`
+- `UnityEngine.AnimationModule.dll`
 
-On build, the project automatically copies the compiled DLL into your game's plugin folder. Update the `<GameDir>` property in `NIGHTMAREMODE.csproj` to point at your own install path first. Otherwise, the built `NIGHTMAREMODE.dll` can be found in `bin/Debug/net6.0/`.
+On build, the project copies the compiled DLL into your game's plugin folder. Update the `<GameDir>` property in `NIGHTMAREMODE.csproj` to point at your own install path first — if it's empty or points somewhere that doesn't exist, the copy is skipped and the build still succeeds. Either way, the built `NIGHTMAREMODE.dll` can be found in `bin/Debug/net6.0/`.
 
 ## Packaging for Thunderstore
 
