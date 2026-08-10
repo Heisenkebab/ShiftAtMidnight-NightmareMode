@@ -40,3 +40,6 @@ feature names, so anything you want to dial back is easy to find.
   NIGHTMARE MODE panel explaining what killed it.
 - **Packaging** — A `ThunderstorePackage` build target that produces an upload-ready zip from a
   single `<Version>` value in the csproj.
+
+[Unreleased]: https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/releases/tag/v1.0.0
