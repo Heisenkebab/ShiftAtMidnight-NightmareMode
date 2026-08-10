@@ -1,5 +1,6 @@
 using HarmonyLib;
-using NIGHTMAREMODE;
+
+namespace NIGHTMAREMODE.Patches;
 
 [HarmonyPatch(typeof(Spider), "Start")]
 public static class SpiderSpeedPatch

@@ -1,6 +1,7 @@
 using HarmonyLib;
-using NIGHTMAREMODE;
 using UnityEngine;
+
+namespace NIGHTMAREMODE.Patches;
 
 [HarmonyPatch(typeof(VentTrigger), "Rpc_EnterExitVent")]
 public static class VentPushOutSpeedPatch

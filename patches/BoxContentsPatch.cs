@@ -1,6 +1,7 @@
 using HarmonyLib;
-using NIGHTMAREMODE;
 using UnityEngine;
+
+namespace NIGHTMAREMODE.Patches;
 
 [HarmonyPatch(typeof(PickupObject), "Spawned")]
 public static class BoxContentsPatch

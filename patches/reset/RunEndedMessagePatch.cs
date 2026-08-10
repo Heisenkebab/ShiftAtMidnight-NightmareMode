@@ -1,5 +1,7 @@
 using HarmonyLib;
 
+namespace NIGHTMAREMODE.Patches;
+
 [HarmonyPatch(typeof(MainMenu), "Start")]
 public static class RunEndedMessagePatch
 {

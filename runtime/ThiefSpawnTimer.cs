@@ -1,6 +1,7 @@
 using System;
-using NIGHTMAREMODE;
 using UnityEngine;
+
+namespace NIGHTMAREMODE;
 
 internal class ThiefSpawnTimer : MonoBehaviour
 {

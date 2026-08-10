@@ -1,6 +1,7 @@
 using Fusion;
 using HarmonyLib;
-using NIGHTMAREMODE;
+
+namespace NIGHTMAREMODE.Patches;
 
 [HarmonyPatch(typeof(PlayerManager), "Rpc_Die")]
 public static class ResetOnDeathPatch

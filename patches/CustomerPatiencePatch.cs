@@ -1,6 +1,7 @@
 using HarmonyLib;
-using NIGHTMAREMODE;
 using UnityEngine.UI;
+
+namespace NIGHTMAREMODE.Patches;
 
 [HarmonyPatch(typeof(StoreBrowseBehaviour), "Spawned")]
 public static class CustomerPatiencePatch

@@ -1,5 +1,6 @@
 using HarmonyLib;
-using NIGHTMAREMODE;
+
+namespace NIGHTMAREMODE.Patches;
 
 [HarmonyPatch(typeof(PlayerManager), "Rpc_Downed")]
 public static class ResetOnDownPatch

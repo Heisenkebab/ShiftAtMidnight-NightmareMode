@@ -1,5 +1,6 @@
 using HarmonyLib;
-using NIGHTMAREMODE;
+
+namespace NIGHTMAREMODE.Patches;
 
 [HarmonyPatch(typeof(SaveManager), "Rpc_ActuallyGameplayValuesForClients")]
 public static class ScaleSaveManagerQuotaPatch
