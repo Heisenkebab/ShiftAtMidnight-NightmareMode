@@ -2,7 +2,7 @@ using HarmonyLib;
 using NIGHTMAREMODE;
 
 [HarmonyPatch(typeof(Spider), "Rpc_ChangeHittableHealth")]
-public static class EnemyHealthPatch
+public static class SpiderHealthPatch
 {
     static void Prefix(ref float health, Spider __instance)
     {
