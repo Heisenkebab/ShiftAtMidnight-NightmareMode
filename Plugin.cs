@@ -40,7 +40,6 @@ public class Plugin : BasePlugin
                 Description = "A mod that makes the game a nightmare",
                 Author = "Heisenkebab",
                 Version = ModInfo.PLUGIN_VERSION,
-                NexusModsId = 6,
                 ThunderstoreTeam = "Heisenkebab_Mods",
                 ThunderstoreModName = "NIGHTMARE_Mode"
             });
