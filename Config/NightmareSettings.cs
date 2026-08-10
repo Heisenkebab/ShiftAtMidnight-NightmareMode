@@ -11,6 +11,7 @@ internal static class NightmareSettings
     public static ConfigEntry<bool> ShouldSpawnThieves;
     public static ConfigEntry<int> SpawnInterval;
     public static ConfigEntry<int> SpawnChance;
+    public static ConfigEntry<float> ThiefCaughtPayout;
     public static ConfigEntry<float> DamageTakenScaling;
     public static ConfigEntry<float> SpiderHealthScaling;
     public static ConfigEntry<float> SpiderSpeedScaling;
@@ -32,6 +33,8 @@ internal static class NightmareSettings
         SpawnInterval = config.Bind("3Thieves", "2Spawn Interval", 20, new ConfigDescription("Adjust the spawn interval for thieves, in seconds.", new AcceptableValueRange<int>(5, 60)));
 
         SpawnChance = config.Bind("3Thieves", "3Spawn Chance", 50, new ConfigDescription("Adjust the spawn chance for thieves.", new AcceptableValueRange<int>(1, 100)));
+
+        ThiefCaughtPayout = BindRounded(config, "3Thieves", "4Thief Caught Payout", 0, 0f, 10f, "Adjust how much money you get back when a thief is caught.");
 
         DamageTakenScaling = BindRounded(config, "4Damage", "Damage Taken Scaling", 3f, 1f, 10f, "Adjust the damage taken multiplier.");
 
