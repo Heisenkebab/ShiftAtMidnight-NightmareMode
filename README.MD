@@ -1,6 +1,8 @@
 # Nightmare Mode
 
-An mod for **Shift At Midnight** that turns the whole game up with steeper quotas, tougher spiders, thieves from Day 1, and mistakes that cost you the save instead of the day. Built for players who've cleared the base game and want the difficulty pushed well past it, with every multiplier exposed as a config value so you can dial in exactly how much.
+[![Thunderstore](https://img.shields.io/thunderstore/v/Heisenkebab_Mods/NIGHTMARE_Mode?logo=thunderstore&logoColor=white)](https://thunderstore.io/c/shift-at-midnight/p/Heisenkebab_Mods/NIGHTMARE_Mode/)
+
+A mod for **Shift At Midnight** that turns the whole game up with steeper quotas, tougher spiders, thieves from Day 1, and mistakes that cost you the save instead of the day. Built for players who've cleared the base game and want the difficulty pushed well past it, with every multiplier exposed as a config value so you can dial in exactly how much.
 
 ## Features
 
