@@ -17,9 +17,11 @@ public static class TutorialShelfPatch
         SaveGameMode mode = (SaveGameMode)SaveManager.GetGameMode(SaveManager.CurrentSaveSlot);
         if (mode != SaveGameMode.Story) return;
 
-        //Because we get 2 boxes we can only remove the maxAmount from a box * 2
+        // The tutorial hands out exactly 2 boxes, so the most the shelf can be
+        // stripped by is what those 2 boxes now hold between them.
         int itemAmount = NightmareSettings.BoxContentAmount.Value * 2;
+        int before = __instance.removeAtStartAmount;
         __instance.removeAtStartAmount = itemAmount;
-        Plugin.Log.LogInfo($"[Restock] Set items to {itemAmount} instead of 20");
+        Plugin.Log.LogInfo($"[Restock] Set items to {itemAmount} instead of {before}");
     }
 }

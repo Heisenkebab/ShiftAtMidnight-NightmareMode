@@ -5,6 +5,9 @@ namespace NIGHTMAREMODE;
 
 internal class NightmareRunEnder : MonoBehaviour
 {
+    internal const float QuotaMissedDelay = 4f;
+    internal const float DeathDelay = 3f;
+
     internal static NightmareRunEnder Instance;
 
     private float _secondsUntilEnd = -1f;
@@ -55,9 +58,6 @@ internal class NightmareRunEnder : MonoBehaviour
             Plugin.Log.LogError($"[NightmareRunEnder] HandleEndSessionReturn failed: {e}");
         }
     }
-
-    internal const float QuotaMissedDelay = 4f;
-    internal const float DeathDelay = 3f;
 
     internal static void ShowEndReason(string playerMessage)
     {

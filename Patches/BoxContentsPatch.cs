@@ -1,5 +1,4 @@
 using HarmonyLib;
-using UnityEngine;
 
 namespace NIGHTMAREMODE.Patches;
 
@@ -11,7 +10,7 @@ public static class BoxContentsPatch
         if (!NightmareSettings.Enabled.Value) return;
         if (__instance.Object == null || !__instance.Object.HasStateAuthority) return;
 
-        // Only boxes carry a stock count, every other PickupObject leaves these at 0.
+        // Only boxes carry a stock count; every other PickupObject leaves these at 0.
         if (__instance.itemStorage <= 0 && __instance.itemStorage2 <= 0) return;
         if (__instance.itemStorage != 15) return;
 
