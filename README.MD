@@ -1,6 +1,6 @@
 # Nightmare Mode
 
-An unofficial [BepInEx](https://github.com/BepInEx/BepInEx) mod for **Shift At Midnight** that makes the game meaner. Built for players who've cleared the base game and want the numbers to hurt.
+An unofficial [BepInEx](https://github.com/BepInEx/BepInEx) mod for **Shift At Midnight** that turns the whole game up — steeper quotas, tougher spiders, thieves from Day 1, and mistakes that cost you the save instead of the day. Built for players who've cleared the base game and want the difficulty pushed well past it, with every multiplier exposed as a config value so you can dial in exactly how much.
 
 ## Features
 
@@ -11,11 +11,12 @@ An unofficial [BepInEx](https://github.com/BepInEx/BepInEx) mod for **Shift At M
 - Restock boxes only refill shelves with 5 items instead of 15.
 - Customers are always on a time limit — no more infinite-patience shoppers.
 - Missing quota or dying wipes your save entirely, instead of just costing you the day.
+- Vents become far less safe to hide in — you get kicked out of them much faster. This one is handled purely client-side, so each player's own push-out speed setting is what applies to them, not the host's.
+- Tweakable multipliers (config values) for each of the above — damage, movement speed, HP, quota, etc. — instead of hardcoded amounts.
 
 ## Planned
 
-- Vents become far less safe to hide in — you get kicked out of them much faster.
-- Tweakable multipliers (config values) for each of the above — damage, movement speed, HP, quota, etc. — instead of hardcoded amounts.
+Nothing locked in yet. If there's a way you'd like the game made harder, [open an issue](https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/issues) and suggest it — feature requests are welcome.
 
 ## Requirements
 
