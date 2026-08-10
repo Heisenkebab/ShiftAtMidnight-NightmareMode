@@ -3,8 +3,10 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>NIGHTMAREMODE</AssemblyName>
-    <Product>My first plugin</Product>
+    <Product>NIGHTMARE Mode</Product>
     <Version>1.0.0</Version>
+    <BepInExPluginGuid>nightmaremode</BepInExPluginGuid>
+    <BepInExPluginName>NIGHTMARE Mode</BepInExPluginName>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <RestoreAdditionalProjectSources>

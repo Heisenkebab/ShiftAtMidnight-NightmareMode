@@ -8,9 +8,13 @@ using Il2CppInterop.Runtime.Injection;
 using ModSettingsMenu.Api;
 using UnityEngine;
 
+// Generated from the csproj by BepInEx.PluginInfoProps. Its class name is fixed,
+// so alias it to something readable.
+using ModInfo = NIGHTMAREMODE.MyPluginInfo;
+
 namespace NIGHTMAREMODE;
 
-[BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
+[BepInPlugin(ModInfo.PLUGIN_GUID, ModInfo.PLUGIN_NAME, ModInfo.PLUGIN_VERSION)]
 [BepInDependency(ModSettingsMenu.PluginInfo.PLUGIN_GUID)]
 public class Plugin : BasePlugin
 {
@@ -38,7 +42,7 @@ public class Plugin : BasePlugin
         var harmony = new Harmony("net.heisenkebab.nightmaremode");
         harmony.PatchAll();
 
-        Log.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
+        Log.LogInfo($"Plugin {ModInfo.PLUGIN_NAME} {ModInfo.PLUGIN_VERSION} is loaded!");
 
     }
 
@@ -82,22 +86,16 @@ public class Plugin : BasePlugin
         NightmareSettings.QuotaReset = Config.Bind("9GameReset", "2Quota Reset", true, "Wipe the run when the day ends without the quota being met.");
 
         ModSettingsRegistry.Register(
-          PluginInfo.PLUGIN_GUID,
+          ModInfo.PLUGIN_GUID,
           new ModSettingsModOptions
           {
-              Name = "NIGHTMARE Mode",
+              Name = ModInfo.PLUGIN_NAME,
               Description = "A mod that makes the game a nightmare",
               Author = "Heisenkebab",
-              Version = PluginInfo.PLUGIN_VERSION,
+              Version = ModInfo.PLUGIN_VERSION,
               NexusModsId = 6,
               ThunderstoreTeam = "Heisenkebab_Mods",
               ThunderstoreModName = "NIGHTMAREMode"
           });
-    }
-    class PluginInfo
-    {
-        public const string PLUGIN_GUID = "nightmaremode";
-        public const string PLUGIN_NAME = "NIGHTMARE Mode";
-        public const string PLUGIN_VERSION = "1.0.0";
     }
 }
