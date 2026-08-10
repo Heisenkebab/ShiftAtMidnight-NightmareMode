@@ -9,7 +9,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 Nothing yet.
 
-## [1.0.0] - Unreleased
+## [1.0.0] - 2026-08-10
 
 Initial release. Every value below is exposed in the config, and the section names match the
 feature names, so anything you want to dial back is easy to find.
