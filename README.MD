@@ -1,6 +1,6 @@
 # Nightmare Mode
 
-An unofficial [BepInEx](https://github.com/BepInEx/BepInEx) mod for **Shift At Midnight** that turns the whole game up — steeper quotas, tougher spiders, thieves from Day 1, and mistakes that cost you the save instead of the day. Built for players who've cleared the base game and want the difficulty pushed well past it, with every multiplier exposed as a config value so you can dial in exactly how much.
+An mod for **Shift At Midnight** that turns the whole game up with steeper quotas, tougher spiders, thieves from Day 1, and mistakes that cost you the save instead of the day. Built for players who've cleared the base game and want the difficulty pushed well past it, with every multiplier exposed as a config value so you can dial in exactly how much.
 
 ## Features
 
