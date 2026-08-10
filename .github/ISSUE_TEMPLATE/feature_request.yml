@@ -1,0 +1,63 @@
+name: Feature request
+description: Suggest a new way to make the game harder, or a change to an existing one.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ideas are welcome. Nightmare Mode is about raising the difficulty of the base game, so the best requests are ones that make an existing system meaner rather than adding brand new content.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before requesting
+      options:
+        - label: I searched the existing issues and didn't find this idea already.
+          required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: What part of the game does this touch?
+      options:
+        - Quota
+        - Thieves
+        - Spiders
+        - Player damage / health
+        - Customers
+        - Restocking / boxes
+        - Vents
+        - Save resets on death or missed quota
+        - Something else
+    validations:
+      required: true
+
+  - type: textarea
+    id: idea
+    attributes:
+      label: What should change?
+      description: Describe the feature and what it would look like in game.
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why does this make the game better?
+      description: What's too easy or too forgiving right now?
+    validations:
+      required: true
+
+  - type: textarea
+    id: config
+    attributes:
+      label: How should it be configurable?
+      description: Nearly everything in the mod is a config value. What would the setting be, and what default would you pick?
+      placeholder: "e.g. SpiderDamageScaling, default 2.0"
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else?
+      description: Related mods, screenshots, or details that would help.

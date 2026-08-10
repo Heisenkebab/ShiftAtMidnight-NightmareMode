@@ -1,0 +1,99 @@
+name: Bug report
+description: Something in Nightmare Mode is broken, crashes, or doesn't apply the way it should.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report this. The more of the below you fill in, the faster it can be tracked down — the log file especially.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before reporting
+      options:
+        - label: I'm on the latest version of Nightmare Mode.
+          required: true
+        - label: I searched the existing issues and didn't find this one.
+          required: true
+
+  - type: input
+    id: mod-version
+    attributes:
+      label: Nightmare Mode version
+      description: 'Search `BepInEx/LogOutput.log` for `Loading [NIGHTMARE Mode` — the version is on that line.'
+      placeholder: "1.0.0"
+    validations:
+      required: true
+
+  - type: input
+    id: bepinex-version
+    attributes:
+      label: BepInEx version
+      description: The first line of `BepInEx/LogOutput.log`.
+      placeholder: "BepInEx 6.0.0-be.755"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: session
+    attributes:
+      label: Where did it happen?
+      description: Several settings are applied by the host and synced to everyone, so this matters a lot.
+      options:
+        - Singleplayer
+        - Multiplayer — I was the host
+        - Multiplayer — I was a client
+        - Multiplayer — affects both host and clients
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you see in game?
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Start a run with ...
+        2. Set ... in the config
+        3. On day 2, ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: config
+    attributes:
+      label: Changed config values
+      description: Any settings you changed from their defaults, or the relevant part of your config file.
+      render: text
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log output
+      description: Paste `BepInEx/LogOutput.log`, or at least everything around the failure. This is automatically formatted as code — no backticks needed.
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: other-mods
+    attributes:
+      label: Other mods installed
+      description: If you can, check whether the problem still happens with only Nightmare Mode (and its dependencies) enabled.

@@ -1,5 +1,12 @@
 {
   "[xml]": {
     "editor.formatOnSave": false
+  },
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-issue-forms.json": [
+      ".github/ISSUE_TEMPLATE/bug_report.yml",
+      ".github/ISSUE_TEMPLATE/feature_request.yml"
+    ],
+    "https://json.schemastore.org/github-issue-config.json": ".github/ISSUE_TEMPLATE/config.yml"
   }
 }
