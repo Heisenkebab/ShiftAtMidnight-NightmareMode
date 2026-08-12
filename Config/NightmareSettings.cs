@@ -26,7 +26,7 @@ internal static class NightmareSettings
     {
         Enabled = config.Bind("1General", "Enabled", true, "Enable this mod.");
 
-        QuotaScaling = BindRounded(config, "2Quota", "Quota Scaling", 3f, 1f, 10f, "Adjust the quota multiplier.");
+        QuotaScaling = BindRounded(config, "2Quota", "Quota Scaling", 2f, 1f, 10f, "Adjust the quota multiplier.");
 
         ShouldSpawnThieves = config.Bind("3Thieves", "1Should Spawn Thieves", true, "Enable or disable thief spawns.");
 
