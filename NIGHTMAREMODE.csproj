@@ -101,6 +101,8 @@
       DestinationFiles="$(PackageStageDir)\icon.png" />
     <Copy SourceFiles="$(MSBuildProjectDirectory)\README.MD"
       DestinationFiles="$(PackageStageDir)\README.md" />
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\CHANGELOG.MD" 
+        DestinationFile="$(PackageStageDir)\CHANGELOG.md"/>
 
     <PropertyGroup>
       <_ManifestText>$([System.IO.File]::ReadAllText('$(ThunderstoreDir)\manifest.json.in'))</_ManifestText>
