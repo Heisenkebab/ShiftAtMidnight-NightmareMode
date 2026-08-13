@@ -9,6 +9,15 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 Nothing yet.
 
+## [1.0.1] - 2026-08-13
+
+### Changed
+
+- **Quota** — The default quota multiplier is now 2x, down from 3x. This only affects fresh
+  installs: BepInEx writes the value into your config on first run, so existing players keep 3x
+  until they change it or delete the `Quota Scaling` line from
+  `BepInEx/config/nightmaremode.cfg`
+
 ## [1.0.0] - 2026-08-10
 
 Initial release. Every value below is exposed in the config, and the section names match the
@@ -42,4 +51,5 @@ feature names, so anything you want to dial back is easy to find.
   single `<Version>` value in the csproj.
 
 [Unreleased]: https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/compare/v1.0.0...HEAD
+[1.0.1]: https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/releases/tag/v1.0.0

@@ -8,7 +8,7 @@ A mod for **Shift At Midnight** that turns the whole game up with steeper quotas
 
 Each feature below maps to the config section of the same name, so anything you want to change is easy to find.
 
-- **Quota** — Daily store quotas are multiplied by 3x by default, starting from Day 1 and applying to every day after.
+- **Quota** — Daily store quotas are multiplied by 2x by default, starting from Day 1 and applying to every day after.
 - **Thieves** — Thieves can show up from the very first day and spawn more often, instead of only appearing later on.
 - **Damage** — Every hit the player takes is multiplied.
 - **Spiders** — Movement speed and HP are both scaled up.
