@@ -9,6 +9,21 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 Nothing yet.
 
+## [1.0.2] - 2026-08-13
+
+### Changed
+
+- **Packaging** — The Thunderstore zip now includes `CHANGELOG.md`, so release notes are readable
+  from the mod page instead of only here.
+
+### Fixed
+
+- **Spiders** — Health scaling now actually works. The multiplier was only ever applied to a
+  spider's current health, and with maximum health left unscaled the increase never stuck, so
+  spiders went down in the usual number of hits no matter what you set. Both values are now scaled
+  once when the spider spawns. If you had already turned the multiplier up to compensate, expect
+  spiders to be considerably tougher than they were.
+
 ## [1.0.1] - 2026-08-13
 
 ### Changed
@@ -50,6 +65,7 @@ feature names, so anything you want to dial back is easy to find.
 - **Packaging** — A `ThunderstorePackage` build target that produces an upload-ready zip from a
   single `<Version>` value in the csproj.
 
-[Unreleased]: https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/compare/v1.0.2...HEAD
+[1.0.2]: https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/releases/tag/v1.0.0
