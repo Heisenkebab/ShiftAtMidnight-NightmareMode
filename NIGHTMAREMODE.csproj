@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>NIGHTMAREMODE</AssemblyName>
     <Product>NIGHTMARE Mode</Product>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <BepInExPluginGuid>nightmaremode</BepInExPluginGuid>
     <BepInExPluginName>NIGHTMARE Mode</BepInExPluginName>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -101,6 +101,8 @@
       DestinationFiles="$(PackageStageDir)\icon.png" />
     <Copy SourceFiles="$(MSBuildProjectDirectory)\README.MD"
       DestinationFiles="$(PackageStageDir)\README.md" />
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\CHANGELOG.MD" 
+        DestinationFile="$(PackageStageDir)\CHANGELOG.md"/>
 
     <PropertyGroup>
       <_ManifestText>$([System.IO.File]::ReadAllText('$(ThunderstoreDir)\manifest.json.in'))</_ManifestText>
