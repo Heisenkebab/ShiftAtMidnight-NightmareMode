@@ -19,7 +19,10 @@ Each feature below maps to the config section of the same name, so anything you 
 
 ## Planned
 
-Nothing locked in yet. If there's a way you'd like the game made harder, [open an issue](https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/issues) and suggest it — feature requests are welcome.
+- **Thieves** — Thieves only give back the money they stole when they're caught, not when they're killed.
+- **Doppelgangers** — Every doppelganger you let through raises spider health and the damage you take.
+
+Nothing else locked in yet. If there's a way you'd like the game made harder, [open an issue](https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/issues) and suggest it — feature requests are welcome.
 
 ## Requirements
 

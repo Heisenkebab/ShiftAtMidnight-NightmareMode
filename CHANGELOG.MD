@@ -9,6 +9,22 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 Nothing yet.
 
+## [1.0.3] - 2026-08-21
+
+### Changed
+
+- **Spiders** — The default health multiplier is now 1.2x, down from 4x. Health scaling only started
+  working properly in 1.0.2, and once it did, 4x turned spiders into something you had to run from
+  rather than fight. This only affects fresh installs: BepInEx writes the value into your config on
+  first run, so existing players keep 4x until they change it or delete the `Spider Health Scaling`
+  line from `BepInEx/config/nightmaremode.cfg`
+
+### Fixed
+
+- **Packaging** — `CHANGELOG.md` now actually makes it into the Thunderstore zip. The copy step
+  added in 1.0.2 used a misspelled setting and silently did nothing, so the mod page still had no
+  release notes to show.
+
 ## [1.0.2] - 2026-08-13
 
 ### Changed
@@ -65,7 +81,8 @@ feature names, so anything you want to dial back is easy to find.
 - **Packaging** — A `ThunderstorePackage` build target that produces an upload-ready zip from a
   single `<Version>` value in the csproj.
 
-[Unreleased]: https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/compare/v1.0.2...HEAD
+[Unreleased]: https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/compare/v1.0.3...HEAD
+[1.0.3]: https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/releases/tag/v1.0.0
