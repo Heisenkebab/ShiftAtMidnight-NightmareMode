@@ -1,6 +1,6 @@
 ---
 name: cut-release
-description: Prepare a release of Nightmare Mode — bump the version, write the CHANGELOG entry, update the README if features changed, commit as "docs: release x.x.x", and create the git tag. Use whenever the user asks to "update the files for a new patch/minor/major version", "cut a release", "prep a release", or "bump the version" after finishing a feature or patch.
+description: Prepare a release of Nightmare Mode — bump the version, write the CHANGELOG entry, update the README if features changed, commit as "docs: release x.x.x", create the git tag, and produce the GitHub release notes. Use whenever the user asks to "update the files for a new patch/minor/major version", "cut a release", "prep a release", or "bump the version" after finishing a feature or patch.
 ---
 
 # Cut a release
@@ -91,15 +91,40 @@ The commit touches exactly `NIGHTMAREMODE.csproj`, `CHANGELOG.MD`, and — when 
 
 **Do not push and do not push the tag.** Stop here.
 
-### 7. Hand off
+### 7. Write the GitHub release notes
+
+Release notes are derived from the changelog, never written twice. Copy the new version's
+section body into `artifacts/notes-X.Y.Z.md` — the `### Changed` / `### Fixed` headings and
+their bullets, **without** the `## [X.Y.Z] - YYYY-MM-DD` heading, since the release is
+already titled and dated by GitHub.
+
+`artifacts/` is gitignored, so the notes land beside the upload zip and never get committed.
+
+Nothing else needs writing: Thunderstore renders the full `CHANGELOG.md` from inside the
+zip on its own, and the mod page description comes from `README.MD`.
+
+### 8. Hand off
 
 Report the new version, then give the user the remaining steps as commands they run:
 
 ```
 git push && git push origin vX.Y.Z
+gh release create vX.Y.Z --title "vX.Y.Z" --notes-file artifacts/notes-X.Y.Z.md
 dotnet build -c Release -t:ThunderstorePackage
 ```
 
-The second produces `artifacts/NIGHTMAREMODE-X.Y.Z.zip`, ready to upload to Thunderstore.
-Offer to run the package build if they want the zip verified before pushing — it's local
-and safe. Uploading is theirs.
+Push the tag **before** `gh release create`. If the tag isn't on the remote yet, gh creates
+a new one off the default branch (`main`) — and releases are usually cut from `dev`, so it
+would tag the wrong commit.
+
+The build produces `artifacts/NIGHTMAREMODE-X.Y.Z.zip`, ready to upload to Thunderstore.
+Offer to run it if they want the zip verified before pushing — it's local and safe.
+Uploading is theirs.
+
+Never suggest GitHub's "auto-generate release notes" button. It lists commit subjects, and
+`fix(spider): scale health and maxHealth once on spawn` tells a player deciding whether to
+update precisely nothing. Conventional Commits are for the developer; changelog prose is
+for the player.
+
+Finally, end the response by displaying the release notes in full, as a markdown quote
+block, so they can be read and copied without opening the file.
