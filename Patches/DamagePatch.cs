@@ -1,6 +1,5 @@
 using System;
 using HarmonyLib;
-using Il2CppSystem.IO;
 
 namespace NIGHTMAREMODE.Patches;
 
