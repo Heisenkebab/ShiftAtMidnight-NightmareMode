@@ -7,6 +7,8 @@ public static class RunEndedMessagePatch
 {
     static void Postfix(MainMenu __instance)
     {
+        CompleteTransactionPatch.amountOfDoppelgangerLetThrough = 0;
+
         NightmareRunEnder.RunIsDead = false;
 
         RunEndedPanelPatch.ActiveMessage = NightmareRunEnder.PendingEndMessage;

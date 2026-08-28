@@ -1,3 +1,4 @@
+using System;
 using HarmonyLib;
 
 namespace NIGHTMAREMODE.Patches;
@@ -11,8 +12,9 @@ public static class SpiderHealthPatch
         if (!__instance.Object.HasStateAuthority) return;
 
         float healthBefore = __instance.hittable.health;
-        __instance.hittable.health *= NightmareSettings.SpiderHealthScaling.Value;
-        __instance.hittable.maxHealth *= NightmareSettings.SpiderHealthScaling.Value;
-        Plugin.Log.LogInfo($"Scaled enemy health to {NightmareSettings.SpiderHealthScaling.Value}x ({healthBefore} to {__instance.hittable.health})");
+        float health = NightmareSettings.SpiderHealthScaling.Value + (0.2f * Math.Max(CompleteTransactionPatch.amountOfDoppelgangerLetThrough - 1, 0));
+        __instance.hittable.health *= health;
+        __instance.hittable.maxHealth *= health;
+        Plugin.Log.LogInfo($"Scaled enemy health to {health}x ({healthBefore} to {__instance.hittable.health})");
     }
 }
