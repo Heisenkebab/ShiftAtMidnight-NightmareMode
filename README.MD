@@ -12,6 +12,7 @@ Each feature below maps to the config section of the same name, so anything you 
 - **Thieves** — Thieves can show up from the very first day and spawn more often, instead of only appearing later on.
 - **Damage** — Every hit the player takes is multiplied.
 - **Spiders** — Movement speed and HP are both scaled up.
+- **Doppelgangers** — Every doppelganger you let through past the first raises the damage you take during a hunt and adds to spider health, with the health penalty growing by party size. The tally resets with each run.
 - **Customers** — Every customer is on a patience timer, so there are no more infinite-patience shoppers.
 - **Boxes** — Restock boxes only refill shelves with 5 items instead of 15.
 - **Vents** — You get pushed back out much faster, so vents are no longer a safe hiding spot. This one is handled purely client-side, so each player's own push-out speed applies to them rather than the host's.
@@ -20,7 +21,6 @@ Each feature below maps to the config section of the same name, so anything you 
 ## Planned
 
 - **Thieves** — Thieves only give back the money they stole when they're caught, not when they're killed.
-- **Doppelgangers** — Every doppelganger you let through raises spider health and the damage you take.
 
 Nothing else locked in yet. If there's a way you'd like the game made harder, [open an issue](https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/issues) and suggest it — feature requests are welcome.
 

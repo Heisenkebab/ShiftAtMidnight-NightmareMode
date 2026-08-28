@@ -9,6 +9,32 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 Nothing yet.
 
+## [1.1.0] - 2026-08-28
+
+### Added
+
+- **Doppelgangers** — Every doppelganger you serve instead of turning away now makes the rest of
+  the night worse. Past the first one, each adds 0.25x to the damage you take while a hunt is
+  running, and 0.2x per player in the session to spider health — so the same mistake costs a full
+  lobby more than it costs you alone. The tally resets when you return to the main menu, so it only
+  ever punishes the run you're on.
+
+### Changed
+
+- **Damage** — The default multiplier is now 2.5x, down from 3x, since hunt damage now climbs on
+  top of it as doppelgangers get through. As always this only affects fresh installs — existing
+  players keep 3x until they change it or delete the `Damage Taken Scaling` line from
+  `BepInEx/config/nightmaremode.cfg`
+- **Spiders** — The default health multiplier is now 1.4x, up from the 1.2x set in 1.0.3, to give
+  the new per-doppelganger health scaling something to build on. Existing configs are untouched.
+
+### Fixed
+
+- **Damage** — Damage scaling is now applied once, on the host, rather than wherever the game
+  happened to run the damage call. In multiplayer the multiplier could previously be applied more
+  than once for a single hit, so what you actually took depended on how many people were in the
+  lobby. Solo play is unaffected.
+
 ## [1.0.3] - 2026-08-21
 
 ### Changed
@@ -81,7 +107,8 @@ feature names, so anything you want to dial back is easy to find.
 - **Packaging** — A `ThunderstorePackage` build target that produces an upload-ready zip from a
   single `<Version>` value in the csproj.
 
-[Unreleased]: https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/compare/v1.0.3...HEAD
+[Unreleased]: https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/compare/v1.0.3...v1.1.0
 [1.0.3]: https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/Heisenkebab/ShiftAtMidnight-NightmareMode/compare/v1.0.0...v1.0.1
