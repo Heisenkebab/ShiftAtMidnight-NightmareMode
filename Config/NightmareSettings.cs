@@ -36,9 +36,9 @@ internal static class NightmareSettings
 
         ThiefCaughtPayout = BindRounded(config, "3Thieves", "4Thief Caught Payout", 0, 0f, 10f, "Adjust how much money you get back when a thief is caught.");
 
-        DamageTakenScaling = BindRounded(config, "4Damage", "Damage Taken Scaling", 3f, 1f, 10f, "Adjust the damage taken multiplier.");
+        DamageTakenScaling = BindRounded(config, "4Damage", "Damage Taken Scaling", 2.5f, 1f, 10f, "Adjust the damage taken multiplier.");
 
-        SpiderHealthScaling = BindRounded(config, "5Spider", "Spider Health Scaling", 1.2f, 1f, 10f, "Adjust the spider health multiplier.");
+        SpiderHealthScaling = BindRounded(config, "5Spider", "Spider Health Scaling", 1.4f, 1f, 10f, "Adjust the spider health multiplier.");
 
         SpiderSpeedScaling = BindRounded(config, "5Spider", "Spider Speed Scaling", 2f, 1f, 10f, "Adjust the spider speed multiplier.");
 
